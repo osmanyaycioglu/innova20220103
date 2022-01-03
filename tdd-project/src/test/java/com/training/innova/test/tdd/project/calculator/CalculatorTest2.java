@@ -1,15 +1,21 @@
 package com.training.innova.test.tdd.project.calculator;
 
+import java.util.Random;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.opentest4j.AssertionFailedError;
 
+import com.training.innova.test.common.AllTestOnWindows;
+import com.training.innova.test.common.BasicTestOnWindows;
 
 class CalculatorTest2 {
 
@@ -17,6 +23,10 @@ class CalculatorTest2 {
 
     @BeforeAll
     static void setUpBeforeClass() throws Exception {
+        //        System.getProperties()
+        //              .setProperty("my.sys.prop.enable.test",
+        //                           "true");
+
     }
 
     @AfterAll
@@ -24,7 +34,8 @@ class CalculatorTest2 {
     }
 
     @BeforeEach
-    void setUp() throws Exception {
+    void setUp(final TestInfo testInfoParam) throws Exception {
+        System.out.println("about to run" + testInfoParam.getDisplayName() + " tags : " + testInfoParam.getTags());
         this.calc = new Calculator();
     }
 
@@ -37,7 +48,7 @@ class CalculatorTest2 {
     class ToplamaTestleri {
 
 
-        @Test
+        @AllTestOnWindows
         @DisplayName("Bütün testler aynı yerde")
         void add_operation() {
             Integer addLoc = CalculatorTest2.this.calc.add(10,
@@ -64,8 +75,18 @@ class CalculatorTest2 {
 
         }
 
-        @Test
-        @DisplayName("temel tesler")
+        boolean checkIfDisabled() {
+            Random randomLoc = new Random();
+            int nextIntLoc = randomLoc.nextInt(10);
+            System.out.println("random : " + nextIntLoc);
+            return nextIntLoc > 5;
+        }
+
+        @BasicTestOnWindows
+        @DisplayName("temel testler")
+        // @DisabledOnOs(OS.WINDOWS)
+        // @DisabledForJreRange(max = JRE.JAVA_12, min = JRE.JAVA_8)
+        // @EnabledForJreRange(max = JRE.JAVA_12, min = JRE.JAVA_8)
         void add_operation_basic_test() {
             Integer addLoc = CalculatorTest2.this.calc.add(10,
                                                            10);
@@ -82,7 +103,11 @@ class CalculatorTest2 {
 
         @Test
         @DisplayName("Null testleri")
-        void add_operation_given_null_test() {
+        void add_operation_given_null_test(final TestInfo testInfoParam) {
+            System.out.println("Running add_operation_given_null_test : "
+                               + testInfoParam.getDisplayName()
+                               + " tags : "
+                               + testInfoParam.getTags());
             try {
                 Integer add3Loc = CalculatorTest2.this.calc.add(null,
                                                                 20);
@@ -131,6 +156,7 @@ class CalculatorTest2 {
 
         @Test
         @DisplayName("Bütün testler")
+        @Disabled("Bug 101 den dolayı disable edildi")
         void multiply_operation() {
             Assertions.assertEquals(100,
                                     CalculatorTest2.this.calc.multiply(10,
