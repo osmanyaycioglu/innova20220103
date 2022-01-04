@@ -10,15 +10,25 @@ public class CamelToSnakeCache {
     public String converCamelToSnake(final String str) {
         String stringLoc = this.cache.get(str);
         if (stringLoc == null) {
-            stringLoc = this.camelToSnake(stringLoc);
+            stringLoc = this.camelToSnake(str);
             this.cache.put(str,
                            stringLoc);
         }
         return stringLoc;
     }
 
-    public String camelToSnake(final String str) {
 
+    public String searchHistory(final String string) {
+        return this.cache.get(string);
+    }
+
+    public String camelToSnake(final String str) {
+        if (str == null) {
+            return "nil";
+        }
+        if (str.length() == 0) {
+            return "";
+        }
         StringBuilder result = new StringBuilder(str.length() + 10);
         char c = str.charAt(0);
         result.append(Character.toLowerCase(c));
