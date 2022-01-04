@@ -17,7 +17,7 @@ import org.opentest4j.AssertionFailedError;
 import com.training.innova.test.common.AllTestOnWindows;
 import com.training.innova.test.common.BasicTestOnWindows;
 
-class CalculatorTest2 {
+class Calculator2Test {
 
     Calculator calc;
 
@@ -51,24 +51,24 @@ class CalculatorTest2 {
         @AllTestOnWindows
         @DisplayName("Bütün testler aynı yerde")
         void add_operation() {
-            Integer addLoc = CalculatorTest2.this.calc.add(10,
+            Integer addLoc = Calculator2Test.this.calc.add(10,
                                                            10);
             if (addLoc != 20) {
                 throw new AssertionFailedError("10 , 10 toplaman sonuçu 20 olmadı");
             }
-            Integer add2Loc = CalculatorTest2.this.calc.add(10,
+            Integer add2Loc = Calculator2Test.this.calc.add(10,
                                                             20);
             if (add2Loc != 30) {
                 throw new AssertionFailedError("10 , 20 toplaman sonuçu 20 olmadı");
             }
             try {
-                Integer add3Loc = CalculatorTest2.this.calc.add(null,
+                Integer add3Loc = Calculator2Test.this.calc.add(null,
                                                                 20);
             } catch (IllegalArgumentException eLoc) {
             }
 
             try {
-                Integer add4Loc = CalculatorTest2.this.calc.add(10,
+                Integer add4Loc = Calculator2Test.this.calc.add(10,
                                                                 null);
             } catch (IllegalArgumentException eLoc) {
             }
@@ -88,12 +88,12 @@ class CalculatorTest2 {
         // @DisabledForJreRange(max = JRE.JAVA_12, min = JRE.JAVA_8)
         // @EnabledForJreRange(max = JRE.JAVA_12, min = JRE.JAVA_8)
         void add_operation_basic_test() {
-            Integer addLoc = CalculatorTest2.this.calc.add(10,
+            Integer addLoc = Calculator2Test.this.calc.add(10,
                                                            10);
             if (addLoc != 20) {
                 throw new AssertionFailedError("10 , 10 toplaman sonuçu 20 olmadı");
             }
-            Integer add2Loc = CalculatorTest2.this.calc.add(10,
+            Integer add2Loc = Calculator2Test.this.calc.add(10,
                                                             20);
             if (add2Loc != 30) {
                 throw new AssertionFailedError("10 , 20 toplaman sonuçu 20 olmadı");
@@ -109,13 +109,13 @@ class CalculatorTest2 {
                                + " tags : "
                                + testInfoParam.getTags());
             try {
-                Integer add3Loc = CalculatorTest2.this.calc.add(null,
+                Integer add3Loc = Calculator2Test.this.calc.add(null,
                                                                 20);
             } catch (IllegalArgumentException eLoc) {
             }
 
             try {
-                Integer add4Loc = CalculatorTest2.this.calc.add(10,
+                Integer add4Loc = Calculator2Test.this.calc.add(10,
                                                                 null);
             } catch (IllegalArgumentException eLoc) {
             }
@@ -159,18 +159,18 @@ class CalculatorTest2 {
         @Disabled("Bug 101 den dolayı disable edildi")
         void multiply_operation() {
             Assertions.assertEquals(100,
-                                    CalculatorTest2.this.calc.multiply(10,
+                                    Calculator2Test.this.calc.multiply(10,
                                                                        10),
                                     "test ettim 100 gelmeliydi geldi");
             Assertions.assertEquals(200,
-                                    CalculatorTest2.this.calc.multiply(10,
+                                    Calculator2Test.this.calc.multiply(10,
                                                                        20),
                                     "test ettim 100 gelmeliydi geldi");
             Assertions.assertThrows(IllegalArgumentException.class,
-                                    () -> CalculatorTest2.this.calc.multiply(10,
+                                    () -> Calculator2Test.this.calc.multiply(10,
                                                                              null));
             Assertions.assertThrows(IllegalArgumentException.class,
-                                    () -> CalculatorTest2.this.calc.multiply(null,
+                                    () -> Calculator2Test.this.calc.multiply(null,
                                                                              null));
         }
 
@@ -178,11 +178,11 @@ class CalculatorTest2 {
         @DisplayName("Temel testler")
         void multiply_basic_tests() {
             Assertions.assertEquals(100,
-                                    CalculatorTest2.this.calc.multiply(10,
+                                    Calculator2Test.this.calc.multiply(10,
                                                                        10),
                                     "test ettim 100 gelmeliydi geldi");
             Assertions.assertEquals(200,
-                                    CalculatorTest2.this.calc.multiply(10,
+                                    Calculator2Test.this.calc.multiply(10,
                                                                        20),
                                     "test ettim 100 gelmeliydi geldi");
         }
@@ -191,10 +191,10 @@ class CalculatorTest2 {
         @DisplayName("Null testleri")
         void multiply_given_null_tests() {
             Assertions.assertThrows(IllegalArgumentException.class,
-                                    () -> CalculatorTest2.this.calc.multiply(10,
+                                    () -> Calculator2Test.this.calc.multiply(10,
                                                                              null));
             Assertions.assertThrows(IllegalArgumentException.class,
-                                    () -> CalculatorTest2.this.calc.multiply(null,
+                                    () -> Calculator2Test.this.calc.multiply(null,
                                                                              null));
         }
     }
