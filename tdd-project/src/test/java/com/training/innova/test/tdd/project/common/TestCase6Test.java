@@ -24,4 +24,9 @@ public class TestCase6Test {
         System.out.println("TestCase1Test - test2");
     }
 
+    @Test
+    void whenICallThis_thenIExpectSomethingDifferent_inputXYZ_outputTest() {
+        System.out.println("TestCase1Test - test2");
+    }
+
 }
