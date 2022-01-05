@@ -218,8 +218,9 @@ public class DurationConverter {
 
     public static void main(final String[] args) {
         DurationConverter converterLoc = new DurationConverter();
-        long convertLoc = converterLoc.convert("1 day 12 hours >> milis");
-        // long convertLoc = converterLoc.convert("1 day 300 hours 12034 minutes 60 seconds 700milis >> saat");
-        System.out.println("Sonuc : " + convertLoc);
+        long convertLoc1 = converterLoc.convert("1 day 12 hours >> milis");
+        long convertLoc2 = converterLoc.convert("1 day 300 hours 12034 minutes 60 seconds 700 milis >> saat");
+        System.out.println("Sonuc : " + convertLoc1);
+        System.out.println("Sonuc : " + convertLoc2);
     }
 }

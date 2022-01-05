@@ -2,8 +2,8 @@ package com.training.innova.test.Labs.lab3.atm.business;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
+import com.training.innova.test.Labs.lab3.atm.common.IInputSource;
 import com.training.innova.test.Labs.lab3.atm.models.Customer;
 
 public class CustomerProcessFactory {
@@ -47,7 +47,7 @@ public class CustomerProcessFactory {
     }
 
     public static void processWithdraw(final Customer c,
-                                       final Scanner s) {
+                                       final IInputSource s) {
         System.out.println("Çekeceğiniz miktar : ");
         int withdrawLoc = s.nextInt();
         int amountLoc = c.getAmount();

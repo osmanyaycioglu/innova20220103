@@ -1,8 +1,8 @@
 package com.training.innova.test.Labs.lab3.atm.business;
 
 import java.util.List;
-import java.util.Scanner;
 
+import com.training.innova.test.Labs.lab3.atm.common.IInputSource;
 import com.training.innova.test.Labs.lab3.atm.common.LoginException;
 import com.training.innova.test.Labs.lab3.atm.data.ICustomerStorage;
 import com.training.innova.test.Labs.lab3.atm.models.Customer;
@@ -22,7 +22,7 @@ public class CustomerManager {
 
     public void executeProcess(final ICustomerProcess iCustomerProcessLoc,
                                final Customer customerParam,
-                               final Scanner scannerParam) {
+                               final IInputSource scannerParam) {
         iCustomerProcessLoc.customerTask()
                            .accept(customerParam,
                                    scannerParam);

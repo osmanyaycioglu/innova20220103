@@ -1,4 +1,4 @@
-package com.training.innova.test.common;
+package com.training.innova.test.tdd.project.database;
 
 import java.time.LocalDate;
 
@@ -93,6 +93,19 @@ public class Person {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Person [name="
+               + this.name
+               + ", surname="
+               + this.surname
+               + ", weight="
+               + this.weight
+               + ", birthdate="
+               + this.birthdate
+               + "]";
     }
 
 

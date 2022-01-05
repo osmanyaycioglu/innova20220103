@@ -10,7 +10,7 @@ import org.assertj.core.api.Assertions;
 import org.assertj.core.api.Condition;
 import org.junit.jupiter.api.Test;
 
-import com.training.innova.test.common.Person;
+import com.training.innova.test.tdd.project.database.Person;
 
 public class AssertJTest {
 

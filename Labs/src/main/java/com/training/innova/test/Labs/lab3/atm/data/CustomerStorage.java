@@ -11,22 +11,20 @@ public class CustomerStorage implements ICustomerStorage {
 
     @Override
     public void init() {
-        this.mapLoc.put("osmany",
-                        new Customer().setName("osman")
-                                      .setSurname("yaycıoğlu")
-                                      .setUsername("osmany")
-                                      .setAmount(1000)
-                                      .setPassword("1234"));
-        this.mapLoc.put("aliveli",
-                        new Customer().setName("ali")
-                                      .setSurname("veli")
-                                      .setUsername("aliveli")
-                                      .setAmount(5000)
-                                      .setPassword("1234"));
     }
 
     @Override
     public Customer getCustomer(final String usernameParam) {
         return this.mapLoc.get(usernameParam);
+    }
+
+    @Override
+    public void addCustomer(final Customer customerParam) {
+        if (this.mapLoc.containsKey(customerParam.getUsername())) {
+            throw new IllegalArgumentException("Bu kullanıcı şu anda var");
+        }
+        this.mapLoc.put(customerParam.getUsername(),
+                        customerParam);
+
     }
 }

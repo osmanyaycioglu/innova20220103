@@ -8,4 +8,6 @@ public interface ICustomerStorage {
 
     Customer getCustomer(String username);
 
+    void addCustomer(Customer customerParam);
+
 }
